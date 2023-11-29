@@ -9,9 +9,9 @@ const readline = require("readline").createInterface({ // 获得命令行内的�
 
 
 // 连接 OpenAI
-const secretKey = process.env.OPEN_AI_KEY
+const secretKey = process.env.OPENAI_API_KEY
 const openai = new OpenAI({
-	apikey: secretKey
+	apiKey: secretKey
 })
 
 
@@ -34,7 +34,7 @@ async function main() {
 			tools: [{type: "code_interpreter"}],
 			model: "gpt-4-1106-preview"
 		})
-		console.log("\n 开始生成内容");
+		console.log("\n 开始生成内容 \n");
 
 		// 建立线程
 		const thread = await openai.beta.threads.create()
@@ -92,4 +92,5 @@ async function main() {
 }
 
 main()
+ // reference: https://medium.com/@ralfelfving/tutorial-get-started-with-the-new-openai-assistants-api-7049c2517bfe
 
